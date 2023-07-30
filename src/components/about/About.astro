@@ -3,12 +3,14 @@ import Divider from "../Divider.astro";
 import AboutItem from "./AboutItem.astro";
 import {CONTACTS} from "../../content/config";
 import ContactItem from "./ContactItem.astro";
+import {Image} from "@astrojs/image/components"
+
 ---
 
-<div class={"flex flex-1 bg-zinc-800 dark:bg-zinc-950 text-zinc-100 dark:text-zinc-300 border-4 border-zinc-100 p-10 flex-1 max-w-lg "}>
-    <div class="flex flex-1 flex-col gap-8" >
-        <div class={"flex-grow-0 self-start bg-zinc-500 w-40 h-40 rounded-full border-4 border-zinc-100 mx-auto flex items-center justify-center"}>
-            avatar
+<div class={"flex flex-1 bg-zinc-800 dark:bg-zinc-950 text-zinc-100 dark:text-zinc-300 border-4 border-zinc-100 p-10 flex-1 md:max-w-lg "}>
+    <div class="flex flex-1 flex-col gap-8">
+        <div class={"flex-grow-0 self-start bg-zinc-500 w-40 h-40 rounded-full border-4 border-zinc-100 mx-auto flex items-center justify-center overflow-hidden"}>
+            <Image src="/github_profile_pic 1.jpg" width={160} height={160} aspectRacio={1} alt="profile pic" />
         </div>
         <AboutItem title={"About me"}>
             <p>Introvert. In love with coffee and sunrises. Guitar player. I really love traveling. Bibliophile.</p>
@@ -22,10 +24,10 @@ import ContactItem from "./ContactItem.astro";
             <p><strong>Location</strong>: Gomel, Belarus.</p>
         </AboutItem>
         <AboutItem title={"Contacts"}>
-            {CONTACTS.map(contact=> <ContactItem contact={contact} />)}
+            {CONTACTS.map(contact =>
+                    <ContactItem contact={contact}/>)}
         </AboutItem>
     </div>
-
 
 
 </div>
