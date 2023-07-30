@@ -49,3 +49,68 @@ export const CONTACTS: ReadonlyArray<Contact> = [{
     href: "https://github.com/E-g-oR",
     icon: "github"
 },]
+
+export const mainData = {
+    objective: {
+        name: "Desired position",
+        positionValue: "frontend developer.",
+    },
+    education: {
+        university: "Francisk Skorina Gomel state university",
+        data: [{
+            name: "Department",
+            body: "Mathematics and programming technologies.",
+        }, {
+            name: "Speciality",
+            body: "Economic cybernetics",
+        },]
+    },
+    experience: [{
+        position: "Trainee",
+        duration: "3 months",
+        description: "I got acquainted with the development of web applications, as well as mobile development. I learned how to write unit and integration tests.",
+        company: "",
+    }, {
+        position: "Junior frontend developer",
+        duration: "1 year",
+        description: "User interface development, data processing and visualization, bugfix.",
+        company: "ITSupportMe",
+    }, {
+        position: "Frontend developer",
+        duration: "1 year",
+        description: "Development of software products.",
+        company: "Military Academy of Belarus",
+    },],
+    skills: {
+        languages: [{
+            name: "Russian",
+            level: "native speaker",
+            icon: ""
+        }, {
+            name: "Belarussian",
+            level: "Intermediate",
+            icon: ""
+        }, {
+            name: "English",
+            level: "Intermediate",
+            icon: ""
+        },],
+        technologies: {
+            programming: [{
+                category: "front-end",
+                tools: ["React (typescript)", "NextJs", "SolidJs", "Astro", "React Native"]
+            }, {
+                category: "state management",
+                tools: ["Redux", "Zustand", "MobX"]
+            }, {
+                category: "styling",
+                tools: ["vanilla-extract/css", "TailwindCss", "Scss"]
+            }, {
+                category: "back-end",
+                tools: ["NestJs (typescript)", "postgresql", "Prisma orm"]
+            },],
+            others: ["Git", "BEM", "SOLID", "Agile", "Figma", "Thin backend", "Firebase", "Tauri", "Jest", "React testing library", "Cucumber"]
+        }
+    }
+
+}

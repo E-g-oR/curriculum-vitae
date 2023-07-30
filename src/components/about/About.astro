@@ -5,24 +5,27 @@ import {CONTACTS} from "../../content/config";
 import ContactItem from "./ContactItem.astro";
 ---
 
-<div class={"flex flex-col gap-8 bg-zinc-800 text-zinc-100 border-4 border-zinc-100 p-10 flex-1 max-w-lg h-full"}>
-    <div class={"bg-zinc-500 w-40 h-40 rounded-full border-4 border-zinc-100 m-auto flex items-center justify-center"}>
-        avatar
+<div class={"flex flex-1 bg-zinc-800 dark:bg-zinc-950 text-zinc-100 dark:text-zinc-300 border-4 border-zinc-100 p-10 flex-1 max-w-lg "}>
+    <div class="flex flex-1 flex-col gap-8" >
+        <div class={"flex-grow-0 self-start bg-zinc-500 w-40 h-40 rounded-full border-4 border-zinc-100 mx-auto flex items-center justify-center"}>
+            avatar
+        </div>
+        <AboutItem title={"About me"}>
+            <p>Introvert. In love with coffee and sunrises. Guitar player. I really love traveling. Bibliophile.</p>
+            <p>I’m interested with programming and web-development, it is literally my passion. Super excited how
+                to do all
+                this
+                programming stuff with different tools and programming languages, and very pleasured when i get
+                something
+                new to know.</p>
+            <p><strong>Date of birth</strong>: 29 may 2001.</p>
+            <p><strong>Location</strong>: Gomel, Belarus.</p>
+        </AboutItem>
+        <AboutItem title={"Contacts"}>
+            {CONTACTS.map(contact=> <ContactItem contact={contact} />)}
+        </AboutItem>
     </div>
-    <AboutItem title={"About me"}>
-        <p>Introvert. In love with coffee and sunrises. Guitar player. I really love traveling. Bibliophile.</p>
-        <p>I’m interested with programming and web-development, it is literally my passion. Super excited how
-            to do all
-            this
-            programming stuff with different tools and programming languages, and very pleasured when i get
-            something
-            new to know.</p>
-        <p><strong>Date of birth</strong>: 29 may 2001.</p>
-        <p><strong>Location</strong>: Gomel, Belarus.</p>
-    </AboutItem>
-    <AboutItem title={"Contacts"}>
-        {CONTACTS.map(contact=> <ContactItem contact={contact} />)}
-    </AboutItem>
+
 
 
 </div>
