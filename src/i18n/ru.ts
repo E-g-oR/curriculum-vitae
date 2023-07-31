@@ -1,5 +1,5 @@
 import type Translation from "./translation";
-import ruLocale from "date-fns/locale/ru"
+import ruLocale from "date-fns/locale/ru/index"
 import {formatDistanceStrict} from "date-fns";
 
 const ru: Translation = {

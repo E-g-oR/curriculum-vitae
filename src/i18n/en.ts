@@ -1,5 +1,5 @@
 import type Translation from "./translation";
-import enLocale from "date-fns/locale/en-IE";
+import enLocale from "date-fns/locale/en-IE/index";
 import {formatDistanceStrict} from "date-fns";
 
 const en: Translation = {
