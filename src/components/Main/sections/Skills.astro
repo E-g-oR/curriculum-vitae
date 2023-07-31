@@ -1,0 +1,17 @@
+---
+import Section from "../Section.astro"
+import {mainData} from "../../../content/config";
+import {useTranslations} from "../../../i18n/utils";
+
+const t = useTranslations(Astro)
+---
+
+<Section title={t.skills}>
+    <h3 class="text-2xl font-semibold mb-1">{t.about.languages.title}:</h3>
+    {t.about.languages.speaking.map(lang => <p>{lang.name} / <span class="text-zinc-400">{lang.level}</span></p>)}
+    <h3 class="text-2xl font-semibold mt-3 mb-2">{t.tools.title}</h3>
+    <h4 class="text-xl font-semibold mb-1">{t.programming}</h4>
+    {mainData.skills.technologies.programming.map(techList => <p>{techList.tools.join(", ")}</p>)}
+    <h4 class="text-xl font-semibold mb-1">{t.others}</h4>
+    <p>{mainData.skills.technologies.others.join(", ")}</p>
+</Section>
