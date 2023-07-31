@@ -68,14 +68,6 @@ const ru: Translation = {
                 new Date(2021, 9, 13),
                 new Date(2022, 10, 15)
             ]
-        }, {
-            position: "Фронтенд разработчик",
-            description: ["Разработка программных продуктов."],
-            company: "Военная академия Республики Беларусь",
-            period: [
-                new Date(2021, 10, 26),
-                new Date(2022, 10, 26)
-            ]
         },]
     },
     tools: {

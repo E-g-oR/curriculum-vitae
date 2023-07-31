@@ -30,7 +30,7 @@ const en: Translation = {
             info: [{
                 name: "Department",
                 body: "Mathematics and programming technologies"
-            },{
+            }, {
                 name: "Speciality",
                 body: "Economic cybernetics"
             },]
@@ -43,7 +43,7 @@ const en: Translation = {
                     "Spanish",
                 ]
             },
-            speaking:  [
+            speaking: [
                 {name: "Russian", level: "Native speaker"},
                 {name: "Belarussian", level: "Intermediate"},
                 {name: "English", level: "Intermediate"}
@@ -67,14 +67,6 @@ const en: Translation = {
             period: [
                 new Date(2021, 9, 13),
                 new Date(2022, 10, 15)
-            ]
-        }, {
-            position: "Front-end developer",
-            description: ["Development of software products."],
-            company: "Military academy of Belarus",
-            period: [
-                new Date(2021, 10, 26),
-                new Date(2022, 10, 26)
             ]
         },]
     },
