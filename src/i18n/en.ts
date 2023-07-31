@@ -1,12 +1,22 @@
 import type Translation from "./translation";
+import enLocale from "date-fns/locale/en-IE";
+import {formatDistanceStrict} from "date-fns";
 
 const en: Translation = {
+    format: {
+        distance: ([start, end]) => formatDistanceStrict(start, end, {locale: enLocale})
+    },
     name: "Egor Muzychkin",
     description: "Introvert. In love with coffee and sunrises. Bibliophile. Guitar player. Cat person. Obsessed with traveling and nature.",
     location: {
         title: "Location",
         city: "Gomel",
         country: "Belarus",
+    },
+    objective: {
+        title: "Objective",
+        name: "Desired position",
+        value: "front-end developer",
     },
     about: {
         title: "About me",
@@ -17,14 +27,13 @@ const en: Translation = {
         education: {
             title: "Education",
             university: "Francisk Skorina Gomel state university",
-            department: {
-                title: "Department",
-                name: "Mathematics and Programming Technologies",
-            },
-            speciality: {
-                title: "specialty",
-                name: "economic cybernetics",
-            },
+            info: [{
+                name: "Department",
+                body: "Mathematics and programming technologies"
+            },{
+                name: "Speciality",
+                body: "Economic cybernetics"
+            },]
         },
         languages: {
             title: "I speak",
@@ -34,10 +43,10 @@ const en: Translation = {
                     "Spanish",
                 ]
             },
-            speaking: [
-                "Russian",
-                "Belarussian",
-                "English"
+            speaking:  [
+                {name: "Russian", level: "Native speaker"},
+                {name: "Belarussian", level: "Intermediate"},
+                {name: "English", level: "Intermediate"}
             ]
         }
     },
@@ -100,7 +109,10 @@ const en: Translation = {
             icon: "github",
             href: "https://github.com/E-g-oR"
         },]
-    }
+    },
+    programming: "Programming",
+    skills: "Skills",
+    others: "Other",
 }
 
 export default en

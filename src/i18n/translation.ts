@@ -2,19 +2,27 @@ import ru from "./ru";
 import en from "./en";
 
 interface Translation {
-    name: string;
-    description: string;
+    format: {
+        distance: ([start, end]: [Date, Date]) => string
+    }
+    name: string,
+    description: string,
     location: {
         title: string;
         country: string;
         city: string;
     },
+    objective: {
+        title: string,
+        name: string,
+        value: string
+    }
     about: {
         title: string
         body: ReadonlyArray<string>,
         languages: {
             title: string,
-            speaking: ReadonlyArray<string>, // TODO change type to array of records
+            speaking: ReadonlyArray<{ name: string, level: string }>,
             learning: {
                 title: string,
                 list: ReadonlyArray<string>
@@ -23,14 +31,7 @@ interface Translation {
         education: {
             title: string,
             university: string,
-            department: {
-                title: string,
-                name: string
-            },
-            speciality: {
-                title: string,
-                name: string
-            }
+            info: ReadonlyArray<{ name: string, body: string }>
         }
     },
     experience: {
@@ -54,7 +55,10 @@ interface Translation {
             href: string,
             icon: string // TODO move icons to separated const
         }>
-    }
+    },
+    programming: string,
+    skills: string,
+    others: string
 }
 
 export enum Languages {

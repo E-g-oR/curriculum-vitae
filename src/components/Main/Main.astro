@@ -2,31 +2,33 @@
 import Divider from "../Divider.astro";
 import Section from "./Section.astro";
 import {mainData} from "../../content/config";
+import {useTranslations} from "../../i18n/utils";
+const t = useTranslations(Astro)
 ---
-<main class={"px-5 sm:px-10 py-12 md:px-16 md:py-20 flex flex-col flex-1 h-full gap-10 border-l-4 border-zinc-800"}>
-    <h1 class={"text-6xl font-bold"}>Egor Muzychkin</h1>
+<main class={"px-5 sm:px-10 py-12 md:px-16 md:py-20 flex flex-col flex-1 h-full gap-10 md:border-l-4 border-zinc-800"}>
+    <h1 class={"text-4xl sm:text-6xl font-bold"}>{t.name}</h1>
     <Divider color={"dark"}/>
-    <Section title={"Objective"}>
-        <p><strong>{mainData.objective.name}</strong>: {mainData.objective.positionValue}.</p>
+    <Section title={t.objective.title}>
+        <p><strong>{t.objective.name}</strong>: {t.objective.value}.</p>
     </Section>
-    <Section title={"Education"}>
-        <p class={"text-xl"}>{mainData.education.university}.</p>
-        {mainData.education.data.map(item => <p><strong>{item.name}</strong>: {item.body}.</p>)}
+    <Section title={t.about.education.title}>
+        <p class={"text-xl"}>{t.about.education.university}.</p>
+        {t.about.education.info.map(item => <p><strong>{item.name}</strong>: {item.body}.</p>)}
     </Section>
-    <Section title={"Experience"}>
-        {mainData.experience.map(experience =>
+    <Section title={t.experience.title}>
+        {t.experience.list.map(experience =>
                 <h3 class="text-2xl font-semibold mb-2 mt-3">{experience.position}
-                    ({experience.duration}{experience.company && ` — ${experience.company}`})</h3>
+                    ({t.format.distance(experience.period)}{experience.company && ` — ${experience.company}`})</h3>
                 <p>{experience.description}</p>
         )}
     </Section>
-    <Section title={"Skills"}>
-        <h3 class="text-2xl font-semibold mb-1">Language skills</h3>
-        {mainData.skills.languages.map(lang => <p>{lang.name} / <span class="text-zinc-400">{lang.level}</span></p>)}
-        <h3 class="text-2xl font-semibold mt-3 mb-2">Technologies</h3>
-        <h4 class="text-xl font-semibold mb-1">Programming</h4>
+    <Section title={t.skills}>
+        <h3 class="text-2xl font-semibold mb-1">{t.about.languages.title}:</h3>
+        {t.about.languages.speaking.map(lang => <p>{lang.name} / <span class="text-zinc-400">{lang.level}</span></p>)}
+        <h3 class="text-2xl font-semibold mt-3 mb-2">{t.tools.title}</h3>
+        <h4 class="text-xl font-semibold mb-1">{t.programming}</h4>
         {mainData.skills.technologies.programming.map(techList => <p>{techList.tools.join(", ")}</p>)}
-        <h4 class="text-xl font-semibold mb-1">Others</h4>
+        <h4 class="text-xl font-semibold mb-1">{t.others}</h4>
         <p>{mainData.skills.technologies.others.join(", ")}</p>
     </Section>
 </main>

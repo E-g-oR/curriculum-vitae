@@ -1,12 +1,22 @@
 import type Translation from "./translation";
+import ruLocale from "date-fns/locale/ru"
+import {formatDistanceStrict} from "date-fns";
 
 const ru: Translation = {
+    format: {
+        distance: ([start, end]) => formatDistanceStrict(start, end, {locale: ruLocale})
+    },
     name: "Егор Музычкин",
     description: "Интроверт. Влюблён в кофе и рассветы. Библиофил. Гитарист. Люблю котов. Одержим путешествиями и природой.",
     location: {
         title: "Место",
         city: "Гомель",
         country: "Беларусь",
+    },
+    objective: {
+        title: "Цель",
+        name: "Желаемая должность",
+        value: "Фронтенд разработчик",
     },
     about: {
         title: "Обо мне",
@@ -17,14 +27,13 @@ const ru: Translation = {
         education: {
             title: "Образование",
             university: "ГГУ им. Франциска Скорины",
-            department: {
-                title: "Факультет",
-                name: "Математики и технологий программирования",
-            },
-            speciality: {
-                title: "Специальность",
-                name: "Экономическая киберненика",
-            },
+            info: [{
+                name: "Факультет",
+                body: "Математики и технологий программирования"
+            }, {
+                name: "Специальность",
+                body: "Экономическая кибернетика"
+            },]
         },
         languages: {
             title: "Я говорю на",
@@ -35,9 +44,9 @@ const ru: Translation = {
                 ]
             },
             speaking: [
-                "Русский",
-                "Белорусский",
-                "Английский"
+                {name: "Русский", level: "Носитель языка"},
+                {name: "Белорусский", level: "Разговорный"},
+                {name: "Английский", level: "Разговорный"}
             ]
         }
     },
@@ -100,7 +109,10 @@ const ru: Translation = {
             icon: "github",
             href: "https://github.com/E-g-oR"
         },]
-    }
+    },
+    programming: "Программирование",
+    skills: "Навыки",
+    others: "Другое"
 }
 
 export default ru
