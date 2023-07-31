@@ -1,40 +1,43 @@
 ---
+import About from "../components/about/About.astro";
+import Main from "../components/Main/Main.astro";
+import {useTranslations} from "../i18n/utils";
 interface Props {
-	title: string;
+    title: string;
 }
 
-const { title } = Astro.props;
+const {title} = Astro.props;
 ---
 
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description">
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body class="bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-100 flex flex-col md:flex-row">
-		<slot />
-	</body>
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="description" content="Astro description">
+    <meta name="viewport" content="width=device-width"/>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <meta name="generator" content={Astro.generator}/>
+    <title>{title}</title>
+</head>
+<body class="bg-gradient-to-br from-slate-50 dark:from-slate-800 to-slate-200 dark:to-slate-950 text-zinc-800 dark:text-zinc-100 flex flex-col md:flex-row">
+<slot/>
+</body>
 </html>
 <script is:inline>
-	const theme = (() => {
-		if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
-			return localStorage.getItem("theme");
-		}
-		if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-			return "dark";
-		}
-		return "light";
-	})();
+    const theme = (() => {
+        if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+            return localStorage.getItem("theme");
+        }
+        if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+            return "dark";
+        }
+        return "light";
+    })();
 
-	if (theme === "light") {
-		document.documentElement.classList.remove("dark");
-	} else {
-		document.documentElement.classList.add("dark");
-	}
-	window.localStorage.setItem("theme", theme);
+    if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+    } else {
+        document.documentElement.classList.add("dark");
+    }
+    window.localStorage.setItem("theme", theme);
 </script>
