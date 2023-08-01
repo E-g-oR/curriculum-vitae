@@ -1,8 +1,5 @@
 ---
-import Divider from "../Divider.astro";
-import Section from "./Section.astro";
 import {useTranslations} from "../../i18n/utils";
-import Education from "./sections/Education.astro";
 import Experience from "./sections/Experience.astro";
 import Skills from "./sections/Skills.astro";
 import Hero from "./sections/Hero.astro";
@@ -10,16 +7,10 @@ import AboutMe from "./sections/AboutMe.astro";
 import Contacts from "./sections/Contacts.astro";
 const t = useTranslations(Astro)
 ---
-<main class={" md:py-20 flex flex-col flex-1 h-full gap-10"}>
+<main class={"py-10 md:py-20 flex flex-col flex-1 h-full gap-10"}>
     <Hero/>
     <AboutMe/>
-    <!--<h1 class={"text-5xl sm:text-6xl font-bold"}>{t.name}</h1>-->
-    <!--<Divider color={"dark"}/>-->
-    <!--<Section title={t.objective.title}>-->
-    <!--    <p><strong>{t.objective.name}</strong>: {t.objective.value}.</p>-->
-    <!--</Section>-->
-    <!--<Education/>-->
     <Experience/>
+    <Skills/>
     <Contacts/>
-    <!--<Skills/>-->
 </main>

@@ -1,12 +1,12 @@
 ---
 import Section from "../Section.astro";
 import {useTranslations} from "../../../i18n/utils";
-import ContactItem from "../../about/ContactItem.astro";
+import ContactItem from "./ContactItem.astro";
 
 const t = useTranslations(Astro)
 ---
 <Section title={t.contacts.title}>
-    <ul class="flex gap-4 flex-wrap justify-center">
+    <ul class="flex gap-4 flex-wrap justify-center mx-auto max-w-xs sm:max-w-full">
     {t.contacts.list.map(contact=> <ContactItem contact={contact} />)}
     </ul>
 </Section>

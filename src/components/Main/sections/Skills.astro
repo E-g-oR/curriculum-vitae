@@ -1,17 +1,26 @@
 ---
 import Section from "../Section.astro"
-import {mainData} from "../../../content/config";
 import {useTranslations} from "../../../i18n/utils";
+import technologies, {Technology, techPriority} from "../../../content/technologies";
+import {pipe} from "fp-ts/function";
+import * as A from "fp-ts/ReadonlyArray"
+import {Ord} from "fp-ts/number"
+import {contramap} from "fp-ts/Ord";
 
 const t = useTranslations(Astro)
+const techsOrd = pipe(
+    Ord,
+    contramap((t: Technology) => techPriority[t.category])
+)
+const techsOrdered: ReadonlyArray<Technology> = pipe(technologies, A.sort(techsOrd))
 ---
 
-<Section title={t.skills}>
-    <h3 class="text-2xl font-semibold mb-1">{t.about.languages.title}:</h3>
-    {t.about.languages.speaking.map(lang => <p>{lang.name} / <span class="text-zinc-400">{lang.level}</span></p>)}
-    <h3 class="text-2xl font-semibold mt-3 mb-2">{t.tools.title}</h3>
-    <h4 class="text-xl font-semibold mb-1">{t.programming}</h4>
-    {mainData.skills.technologies.programming.map(techList => <p>{techList.tools.join(", ")}</p>)}
-    <h4 class="text-xl font-semibold mb-1">{t.others}</h4>
-    <p>{mainData.skills.technologies.others.join(", ")}</p>
+<Section title={t.tools.title}>
+    <div class="flex flex-wrap justify-center gap-6">
+        {techsOrdered.map(tech =>
+                <div class="flex flex-col gap-2 items-center">
+                    <!--<Image src={tech.image} width={50} height={50} />-->
+                    <span>{tech.name}</span>
+                </div>)}
+    </div>
 </Section>
