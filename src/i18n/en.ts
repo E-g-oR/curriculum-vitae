@@ -78,7 +78,7 @@ const en: Translation = {
         list: [{
             title: "Email",
             body: "emuzych@gmail.com",
-            icon: "mail",
+            icon: "email",
             href: "mailto:emuzych@gmail.com"
         }, {
             title: "Phone number",

@@ -1,0 +1,19 @@
+---
+
+import Container from "../../Container.astro";
+import {useTranslations} from "../../../i18n/utils";
+
+const t = useTranslations(Astro)
+---
+<section>
+    <Container>
+        <div class="flex items-center justify-between">
+            <div class="max-w-lg flex flex-col gap-3">
+                <h1 class="text-6xl font-bold">{t.name}</h1>
+                <p>{t.description}</p>
+                <p class="text-xl">{t.location.city}, {t.location.country}.</p>
+            </div>
+            <div class="w-52 h-52 bg-zinc-800 rounded-full"  />
+        </div>
+    </Container>
+</section>

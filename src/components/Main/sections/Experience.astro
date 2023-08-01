@@ -1,14 +1,16 @@
 ---
 import Section from "../Section.astro";
 import {useTranslations} from "../../../i18n/utils";
+import Card from "../../Card.astro";
 
 const t = useTranslations(Astro)
 ---
 
 <Section title={t.experience.title}>
-    {t.experience.list.map(experience =>
-            <h3 class="text-2xl font-semibold mb-2 mt-3">{experience.position}
-                ({t.format.distance(experience.period)}{experience.company && ` — ${experience.company}`})</h3>
-            <p>{experience.description}</p>
-    )}
+    <ul class="flex gap-3">
+        {t.experience.list.map(experience =>
+                <Card item={experience} />
+        )}
+    </ul>
+
 </Section>

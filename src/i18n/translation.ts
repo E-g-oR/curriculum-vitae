@@ -1,6 +1,19 @@
 import ru from "./ru";
 import en from "./en";
 
+export interface ExperienceItem {
+    company: string,
+    position: string,
+    description: ReadonlyArray<string>,
+    period: [Date, Date],
+}
+export interface ContactItem {
+    title: string,
+    body: string,
+    href: string,
+    icon: string // TODO move icons to separated const
+}
+
 interface Translation {
     format: {
         distance: ([start, end]: [Date, Date]) => string
@@ -36,12 +49,7 @@ interface Translation {
     },
     experience: {
         title: string,
-        list: ReadonlyArray<{
-            company: string,
-            position: string,
-            description: ReadonlyArray<string>,
-            period: [Date, Date],
-        }>
+        list: ReadonlyArray<ExperienceItem>
     },
     tools: {
         title: string,
@@ -49,12 +57,7 @@ interface Translation {
     },
     contacts: {
         title: string,
-        list: ReadonlyArray<{
-            title: string,
-            body: string,
-            href: string,
-            icon: string // TODO move icons to separated const
-        }>
+        list: ReadonlyArray<ContactItem>
     },
     programming: string,
     skills: string,

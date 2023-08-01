@@ -1,0 +1,28 @@
+---
+import {useTranslations} from "../../../i18n/utils";
+import Section from "../Section.astro";
+const t = useTranslations(Astro)
+---
+<Section title={t.about.title}>
+    <div class={"flex justify-between gap-6"}>
+        <div class={"w-56 h-56 bg-zinc-800 rounded-full"}/>
+        <div class={"max-w-2xl"}>
+            {t.about.body.map(paragraph => <p>{paragraph}</p>)}
+            <div class={"flex gap-4 mt-3"}>
+                <div>
+                    <h3 class={"mb-2 text-2xl font-semibold"}>{t.about.languages.title}</h3>
+                    <ul>
+                        {t.about.languages.speaking.map(lang =>
+                                <li>{lang.name}</li>)}
+                    </ul>
+                    <p>{t.about.languages.learning.title}: {t.about.languages.learning.list.join(", ")}</p>
+                </div>
+                <div>
+                    <h3 class={"mb-2 text-2xl font-semibold"}>{t.about.education.title}</h3>
+                    <p>{t.about.education.university}</p>
+                    {t.about.education.info.map(info => <p><strong>{info.name}</strong>: {info.body}.</p>)}
+                </div>
+            </div>
+        </div>
+    </div>
+</Section>
