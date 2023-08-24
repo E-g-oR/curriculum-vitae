@@ -6,7 +6,8 @@ export const getLanguageFromURL = (pathname: string): Languages => {
     return (langCodeMatch ? langCodeMatch[1] : 'en') as Languages;
 }
 
-export const getYears = ([start, end]: [Date, Date]) =>
+
+export const getWorkPeriod = ([start, end]: [Date, Date]) =>
     isSameYear(start, end)
-        ? getYear(start)
+        ? ` ${getYear(start)}`
         : `${getYear(start)} – ${getYear(end)}`

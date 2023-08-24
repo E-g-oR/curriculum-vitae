@@ -1,10 +1,13 @@
 import type Translation from "./translation";
-import enLocale from "date-fns/locale/en-IE/index";
-import {formatDistanceStrict} from "date-fns";
+import locale from "date-fns/locale/en-IE/index";
+import {format, formatDistanceStrict, isSameYear} from "date-fns";
 
 const en: Translation = {
     format: {
-        distance: ([start, end]) => formatDistanceStrict(start, end, {locale: enLocale})
+        distance: ([start, end]) => formatDistanceStrict(start, end, {locale}),
+        period: ([start, end]) => isSameYear(start, end)
+            ? format(start, "MMMM y", {locale})
+            : `${format(start, "MMM y", {locale})} — ${format(end, "MMM y", {locale})}`
     },
     name: "Egor Muzychkin",
     description: "Introvert. In love with coffee and sunrises. Bibliophile. Guitar player. Cat person. Obsessed with traveling and nature.",
@@ -52,22 +55,47 @@ const en: Translation = {
     },
     experience: {
         title: "Work experience",
+        responsibilities: "Responsibilities",
         list: [{
-            position: "Trainee",
-            description: ["I got acquainted with the development of web applications, as well as mobile development. I learned how to write unit and integration tests."],
-            company: "ITSupportMe",
+            position: "Front-end developer",
+            description: "Development of software products using modern libraries and frameworks, mobile development.",
+            company: "NDA",
             period: [
-                new Date(2021, 8, 1),
-                new Date(2021, 9, 30)
-            ]
+                new Date(2022, 10, 26),
+                new Date(2023, 10, 25)
+            ],
+            responsibilities: ["Develoment and implementation UI design",
+                "Set up projects and architecture",
+                "Creating reusable components",
+                "Maintaining and extending projects and bug fixes",
+                "Writing documentation",
+                "Meetings with the customer"],
+            technologies: ["React", "React Native", "Redux (RTQ)", "Zustand", "TypeScript", "TailwindCss"],
         }, {
             position: "Front-end developer",
-            description: ["User interface development, data processing and it’s visualization, bugfix."],
+            description: "User interface development, data processing and it’s visualization, bugfix.",
             company: "ITSupportMe",
             period: [
                 new Date(2021, 9, 13),
                 new Date(2022, 10, 15)
-            ]
+            ],
+            responsibilities: ["Creating reusable components\n",
+                "Building user interface\n",
+                "Data processing and visualisation\n",
+                "Implementing new features\n",
+                "Maintaining and extending projects \n",
+                "Bug fixes"],
+            technologies: ["React", "Redux", "TypeScript", "RxJS"],
+        }, {
+            position: "Trainee",
+            description: "I got acquainted with the development of web applications, as well as mobile development. I learned how to write unit and integration tests.",
+            company: "ITSupportMe",
+            period: [
+                new Date(2021, 8, 1),
+                new Date(2021, 9, 30)
+            ],
+            responsibilities: [],
+            technologies: ["React", "ReactNative", "Redux", "MobX", "JavaScript", "TypeScript", "Jest", "React testing library", "Cucumber framework"],
         },]
     },
     tools: {

@@ -4,9 +4,12 @@ import en from "./en";
 export interface ExperienceItem {
     company: string,
     position: string,
-    description: ReadonlyArray<string>,
+    description: string,
     period: [Date, Date],
+    responsibilities: ReadonlyArray<string>,
+    technologies: ReadonlyArray<string>
 }
+
 export interface ContactItem {
     title: string,
     body: string,
@@ -16,7 +19,8 @@ export interface ContactItem {
 
 interface Translation {
     format: {
-        distance: ([start, end]: [Date, Date]) => string
+        distance: ([start, end]: [Date, Date]) => string,
+        period: ([start, end]: [Date, Date]) => string
     }
     name: string,
     description: string,
@@ -49,6 +53,7 @@ interface Translation {
     },
     experience: {
         title: string,
+        responsibilities: string,
         list: ReadonlyArray<ExperienceItem>
     },
     tools: {

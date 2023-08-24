@@ -1,18 +1,25 @@
 ---
 import {ExperienceItem} from "../i18n/translation";
-import {getYears} from "../utils";
+import {useTranslations} from "../i18n/utils";
 interface Props {
     item: ExperienceItem
 }
 
 const {item} = Astro.props;
+const t = useTranslations(Astro)
 ---
 
 <li class={"flex flex-col gap-1 p-6 rounded-lg shadow-lg flex-1 bg-slate-200 dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-800 min-w-lg"}>
-    <p class="text-2xl">
-        {item.company}
-    </p>
-    <span></span>
-    <h3 class="text-xl dark:text-slate-300 font-light">{item.position} ( {getYears(item.period)} )</h3>
-    {item.description.map(paragraph => <p>{paragraph}</p>)}
+    <h3 class={"text-2xl font-bold"}>{item.position} ( {t.format.distance(item.period)} – {item.company} )</h3>
+    <span class={"text-xl text-slate-300 font-light"}>{t.format.period(item.period)}</span>
+    <div class={"flex gap-4"}>
+        <p class={"max-w-md"}>{item.description}</p>
+        <div>
+            <p>{t.experience.responsibilities}:</p>
+            <ul class={"list-disc pl-5"}>
+                {item.responsibilities.map(responsibility =>
+                        <li>{responsibility}</li>)}
+            </ul>
+        </div>
+    </div>
 </li>

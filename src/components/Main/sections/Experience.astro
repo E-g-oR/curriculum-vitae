@@ -7,7 +7,7 @@ const t = useTranslations(Astro)
 ---
 
 <Section title={t.experience.title}>
-    <ul class="flex flex-col sm:flex-row gap-3">
+    <ul class="flex flex-col gap-3">
         {t.experience.list.map(experience =>
                 <Card item={experience} />
         )}
