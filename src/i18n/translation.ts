@@ -58,7 +58,6 @@ interface Translation {
   };
   tools: {
     title: string;
-    // list: ReadonlyArray<{name: string, image: string, href: string}>
   };
   contacts: {
     title: string;
@@ -72,11 +71,7 @@ interface Translation {
 export enum Languages {
   en = "en",
   ru = "ru",
-  // es = "es",
-  // by = "by"
 }
-
-// export type Language = Languages
 
 export const dictionary = {
   ru,
