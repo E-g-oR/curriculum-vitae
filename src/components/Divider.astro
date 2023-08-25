@@ -1,7 +1,14 @@
 ---
 interface Props {
-    color: "light" | "dark";
+  color: "light" | "dark";
 }
-const {color} = Astro.props
+const { color } = Astro.props;
 ---
-<hr class={`border-t-2 w-full ${color === "light" ? "border-zinc-100" : "border-zinc-800 dark:border-zinc-100"}`}/>
+
+<hr
+  class={`border-t-2 w-full ${
+    color === "light"
+      ? "border-zinc-100"
+      : "border-zinc-800 dark:border-zinc-100"
+  }`}
+/>

@@ -1,16 +1,13 @@
 ---
 import Section from "../Section.astro";
-import {useTranslations} from "../../../i18n/utils";
+import { useTranslations } from "../../../i18n/utils";
 import Card from "../../Card.astro";
 
-const t = useTranslations(Astro)
+const t = useTranslations(Astro);
 ---
 
 <Section title={t.experience.title}>
-    <ul class="flex flex-col gap-3">
-        {t.experience.list.map(experience =>
-                <Card item={experience} />
-        )}
-    </ul>
-
+  <ul class="flex flex-col gap-3">
+    {t.experience.list.map((experience) => <Card item={experience} />)}
+  </ul>
 </Section>

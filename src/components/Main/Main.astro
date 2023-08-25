@@ -1,16 +1,17 @@
 ---
-import {useTranslations} from "../../i18n/utils";
+import { useTranslations } from "../../i18n/utils";
 import Experience from "./sections/Experience.astro";
 import Skills from "./sections/Skills.astro";
 import Hero from "./sections/Hero.astro";
 import AboutMe from "./sections/AboutMe.astro";
 import Contacts from "./sections/Contacts.astro";
-const t = useTranslations(Astro)
+const t = useTranslations(Astro);
 ---
+
 <main class={"py-10 md:py-20 flex flex-col flex-1 h-full gap-10"}>
-    <Hero/>
-    <AboutMe/>
-    <Experience/>
-    <Skills/>
-    <Contacts/>
+  <Hero />
+  <AboutMe />
+  <Experience />
+  <Skills />
+  <Contacts />
 </main>

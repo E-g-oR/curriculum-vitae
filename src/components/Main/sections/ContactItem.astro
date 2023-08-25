@@ -1,20 +1,21 @@
 ---
-import {Contact} from "../../../content/config";
-import {Icon} from "astro-icon"
+import { Contact } from "../../../content/config";
+import { Icon } from "astro-icon";
 interface Props {
-    contact: Contact
+  contact: Contact;
 }
-const {contact} = Astro.props
-const {icon, title, body, href} = contact
+const { contact } = Astro.props;
+const { icon, title, body, href } = contact;
 ---
+
 <a
-        href={href}
-        target={"_blank"}
-        class="py-1.5 px-4 flex items-center gap-2 md:gap-4 lg:gap-8 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition w-full sm:w-auto"
+  href={href}
+  target={"_blank"}
+  class={"py-1.5 px-4 flex items-center gap-2 md:gap-4 lg:gap-8 rounded hover:bg-slate-50 dark:hover:bg-slate-800 transition w-full sm:w-auto"}
 >
-    <Icon pack={"mdi"} name={icon} class="w-10 h-10 max-w-10"/>
-    <div class={"flex flex-col"}>
-        <strong>{title}</strong>
-        <span>{body}</span>
-    </div>
+  <Icon pack={"mdi"} name={icon} class="w-10 h-10 max-w-10" />
+  <div class={"flex flex-col"}>
+    <strong>{title}</strong>
+    <span>{body}</span>
+  </div>
 </a>
