@@ -1,10 +1,17 @@
 ---
 import Section from "../Section.astro";
-import {useTranslations} from "../../../i18n/utils";
+import { useTranslations } from "@i18n/utils";
 
-const t = useTranslations(Astro)
+const t = useTranslations(Astro);
 ---
+
 <Section title={t.about.education.title}>
-    <p class={"text-xl"}>{t.about.education.university}.</p>
-    {t.about.education.info.map(item => <p><strong>{item.name}</strong>: {item.body}.</p>)}
+  <p class={"text-xl"}>{t.about.education.university}.</p>
+  {
+    t.about.education.info.map((item) => (
+      <p>
+        <strong>{item.name}</strong>: {item.body}.
+      </p>
+    ))
+  }
 </Section>

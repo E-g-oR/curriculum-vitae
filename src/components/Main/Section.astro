@@ -1,12 +1,16 @@
 ---
+import Container from "../Container.astro";
 interface Props {
-    title: string
+  title: string;
 }
-const {title} = Astro.props
+const { title } = Astro.props;
 ---
-<section class={"flex flex-col gap-5"}>
-    <h2 class={"text-4xl font-bold"}>{title}</h2>
-    <div class={"ml-3 sm:ml-5 md:ml-10"}>
-        <slot/>
-    </div>
-</section>
+
+<Container>
+  <section class={"flex flex-col gap-5 mt-8"}>
+    <header class="mb-4">
+      <h2 class={"text-4xl font-bold text-center"}>{title}</h2>
+    </header>
+    <slot />
+  </section>
+</Container>

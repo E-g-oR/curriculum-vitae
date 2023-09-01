@@ -1,17 +1,30 @@
 ---
-import Section from "../Section.astro"
-import {mainData} from "../../../content/config";
-import {useTranslations} from "../../../i18n/utils";
-
-const t = useTranslations(Astro)
+import Section from "../Section.astro";
+import { useTranslations } from "@i18n/utils";
+import technologies from "@content/technologies";
+import { getTechsOrdered } from "../../../utils";
+import { Image } from "@astrojs/image/components";
+const t = useTranslations(Astro);
+const techsOrdered = getTechsOrdered(technologies);
 ---
 
-<Section title={t.skills}>
-    <h3 class="text-2xl font-semibold mb-1">{t.about.languages.title}:</h3>
-    {t.about.languages.speaking.map(lang => <p>{lang.name} / <span class="text-zinc-400">{lang.level}</span></p>)}
-    <h3 class="text-2xl font-semibold mt-3 mb-2">{t.tools.title}</h3>
-    <h4 class="text-xl font-semibold mb-1">{t.programming}</h4>
-    {mainData.skills.technologies.programming.map(techList => <p>{techList.tools.join(", ")}</p>)}
-    <h4 class="text-xl font-semibold mb-1">{t.others}</h4>
-    <p>{mainData.skills.technologies.others.join(", ")}</p>
+<Section title={t.tools.title}>
+  <div
+    class="grid grid-cols-3 sm:grid-cols-5 md:flex flex-wrap justify-center gap-6"
+  >
+    {
+      techsOrdered.map((tech) => (
+        <div class="flex flex-col gap-2 items-center">
+          <Image
+            src={`/${tech?.image ?? tech.name}.svg`}
+            width={64}
+            height={64}
+            alt={tech.name ?? "tech"}
+            class={"object-contain"}
+          />
+          <span>{tech.name}</span>
+        </div>
+      ))
+    }
+  </div>
 </Section>
