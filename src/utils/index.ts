@@ -1,9 +1,9 @@
 import type { Languages } from "@i18n/translation";
-import { flow, pipe } from "fp-ts/function";
-import { Ord } from "fp-ts/number";
-import { contramap } from "fp-ts/Ord";
+import { flow, pipe } from "fp-ts/lib/function";
+import { Ord } from "fp-ts/lib/number";
+import { contramap } from "fp-ts/lib/Ord";
 import { Technology, techPriority } from "@content/technologies";
-import * as A from "fp-ts/ReadonlyArray";
+import * as A from "fp-ts/lib/ReadonlyArray";
 
 export const getLanguageFromURL = (pathname: string): Languages => {
   const langCodeMatch = pathname.match(/\/([a-z]{2}-?[a-z]{0,2})\//);
