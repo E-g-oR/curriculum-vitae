@@ -1,10 +1,10 @@
 ---
 interface Props {
-  className: string;
+  className?: string;
 }
 const { className } = Astro.props;
 ---
 
-<div class={`px-5 mx-auto w-full max-w-6xl`}>
+<div class={`px-5 mx-auto w-full max-w-6xl ${className}`}>
   <slot />
 </div>

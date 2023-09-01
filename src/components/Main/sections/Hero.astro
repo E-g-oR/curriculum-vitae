@@ -7,19 +7,16 @@ const t = useTranslations(Astro);
 ---
 
 <section>
-  <Container>
-    <div
-      class="flex gap-6 flex-col-reverse sm:flex-row items-center justify-between"
-    >
-      <div class={"max-w-lg flex flex-col gap-3"}>
-        <h1 class={"text-5xl sm:text-6xl font-bold"}>{t.name}</h1>
-        <p>{t.description}</p>
-        <p class="text-xl">{t.location.city}, {t.location.country}.</p>
-      </div>
-      <Image
-        class={"w-52 h-52 bg-zinc-800 flex-shrink-0 rounded-full object-cover"}
-        src={profile}
-      />
+  <Container className={"flex gap-6 flex-col-reverse sm:flex-row items-center justify-between"}>
+    <div class={"max-w-lg flex flex-col gap-3"}>
+      <h1 class={"text-5xl sm:text-6xl font-bold"}>{t.name}</h1>
+      <p>{t.description}</p>
+      <p class="text-xl">{t.location.city}, {t.location.country}.</p>
     </div>
+    <Image
+      class={"w-52 h-52 bg-zinc-800 flex-shrink-0 rounded-full object-cover"}
+      src={profile ?? "github_profile_pic 1.jpg"}
+      alt={"profile picture"}
+    />
   </Container>
 </section>

@@ -12,7 +12,8 @@ import ProfilePic from "../../../../public/github_profile_pic 1.jpg";
   >
     <Image
       class={"w-56 h-56 bg-zinc-800 rounded-full flex-shrink-0 object-cover"}
-      src={ProfilePic}
+      src={ProfilePic ?? "github_profile_pic 1.jpg"}
+      alt={"profile pic"}
     />
     <div class={"max-w-2xl"}>
       {t.about.body.map((paragraph) => <p>{paragraph}</p>)}
