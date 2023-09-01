@@ -3,6 +3,10 @@ import locale from "date-fns/locale/ru/index";
 import { format, formatDistanceStrict, isSameYear } from "date-fns";
 
 const ru: Translation = {
+  page: {
+    title: "Егор Музычкин",
+    description: "Опытный фронтенд-разработчик, создаю веб-сайты и веб-приложения используя самые современные технологии разработки."
+  },
   format: {
     distance: ([start, end]) => formatDistanceStrict(start, end, { locale }),
     period: ([start, end]) =>

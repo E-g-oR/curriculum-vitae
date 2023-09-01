@@ -3,6 +3,11 @@ import locale from "date-fns/locale/en-IE/index";
 import { format, formatDistanceStrict, isSameYear } from "date-fns";
 
 const en: Translation = {
+  page: {
+    title: "Egor Muzychkin",
+    description:
+      "Experienced frontend engeneer, creating websites and web applications using modern develpment tools.",
+  },
   format: {
     distance: ([start, end]) => formatDistanceStrict(start, end, { locale }),
     period: ([start, end]) =>

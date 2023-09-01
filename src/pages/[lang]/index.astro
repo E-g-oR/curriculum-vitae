@@ -1,14 +1,10 @@
 ---
-import {dictionary, Languages} from "../../i18n/translation";
+import {dictionary, Languages} from "@i18n/translation";
 import Layout from "../../layouts/Layout.astro";
-import About from "../../components/about/About.astro";
-import Main from "../../components/Main/Main.astro";
+import Main from "@components/Main/Main.astro";
 export const getStaticPaths = () => Object.keys(dictionary).map(lang => ({params: {lang}}))
 
-const { lang } = Astro.params;
-console.log(lang)
 ---
 <Layout>
-    <!--<About/>-->
     <Main/>
 </Layout>

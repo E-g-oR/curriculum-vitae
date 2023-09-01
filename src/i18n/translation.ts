@@ -18,6 +18,10 @@ export interface ContactItem {
 }
 
 interface Translation {
+  page: {
+    title: string;
+    description: string;
+  };
   format: {
     distance: ([start, end]: [Date, Date]) => string;
     period: ([start, end]: [Date, Date]) => string;
