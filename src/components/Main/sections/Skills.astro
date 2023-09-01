@@ -1,26 +1,28 @@
 ---
-import Section from "../Section.astro"
-import {useTranslations} from "../../../i18n/utils";
-import technologies, {Technology, techPriority} from "../../../content/technologies";
-import {pipe} from "fp-ts/function";
-import * as A from "fp-ts/ReadonlyArray"
-import {Ord} from "fp-ts/number"
-import {contramap} from "fp-ts/Ord";
-
-const t = useTranslations(Astro)
-const techsOrd = pipe(
-    Ord,
-    contramap((t: Technology) => techPriority[t.category])
-)
-const techsOrdered: ReadonlyArray<Technology> = pipe(technologies, A.sort(techsOrd))
+import Section from "../Section.astro";
+import { useTranslations } from "@i18n/utils";
+import technologies from "@content/technologies";
+import { getTechsOrdered } from "../../../utils";
+import { Image } from "@astrojs/image/components";
+const t = useTranslations(Astro);
+const techsOrdered = getTechsOrdered(technologies);
 ---
 
 <Section title={t.tools.title}>
-    <div class="flex flex-wrap justify-center gap-6">
-        {techsOrdered.map(tech =>
-                <div class="flex flex-col gap-2 items-center">
-                    <!--<Image src={tech.image} width={50} height={50} />-->
-                    <span>{tech.name}</span>
-                </div>)}
-    </div>
+  <div class="flex flex-wrap justify-center gap-6">
+    {
+      techsOrdered.map((tech) => (
+        <div class="flex flex-col gap-2 items-center">
+          <Image
+            src={`public/${tech.image}`}
+            width={64}
+            height={64}
+            alt={tech.name}
+            class={"object-contain"}
+          />
+          <span>{tech.name}</span>
+        </div>
+      ))
+    }
+  </div>
 </Section>

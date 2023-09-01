@@ -1,4 +1,4 @@
-import type { Languages } from "./i18n/translation";
+import type { Languages } from "@i18n/translation";
 import { flow, pipe } from "fp-ts/function";
 import { Ord } from "fp-ts/number";
 import { contramap } from "fp-ts/Ord";
