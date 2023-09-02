@@ -17,8 +17,6 @@ const t = useTranslations(Astro);
     <SEO
       title={t.page.title}
       description={t.page.description}
-      noindex={true}
-      nofollow={true}
       openGraph={{
         basic: {
           title: t.page.title,
@@ -37,7 +35,6 @@ const t = useTranslations(Astro);
   <body
     class="bg-gradient-to-br from-slate-50 dark:from-slate-800 to-slate-200 dark:to-slate-950 bg-no-repeat text-slate-800 dark:text-slate-100"
   >
-    <!--<AppBar/>-->
     <div class="flex flex-col md:flex-row">
       <slot />
     </div>

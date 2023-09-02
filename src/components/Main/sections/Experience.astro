@@ -2,12 +2,17 @@
 import Section from "../Section.astro";
 import { useTranslations } from "@i18n/utils";
 import Card from "@components/Card.astro";
+import type { ExperienceItem } from "@i18n/translation";
 
 const t = useTranslations(Astro);
 ---
 
 <Section title={t.experience.title}>
   <ul class="flex flex-col gap-3">
-    {t.experience.list.map((experience) => <Card item={experience} />)}
+    {
+      t.experience.list.map((experience: ExperienceItem) => (
+        <Card item={experience} />
+      ))
+    }
   </ul>
 </Section>

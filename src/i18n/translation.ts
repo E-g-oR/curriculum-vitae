@@ -10,14 +10,24 @@ export interface ExperienceItem {
   technologies: ReadonlyArray<string>;
 }
 
-export interface ContactItem {
+export interface Contact {
   title: string;
   body: string;
   href: string;
-  icon: string; // TODO move icons to separated const
+  icon: string;
 }
 
-interface Translation {
+export interface EducationItem {
+  name: string;
+  body: string;
+}
+
+export interface Language {
+  name: string;
+  level: string;
+}
+
+export interface Translation {
   page: {
     title: string;
     description: string;
@@ -43,7 +53,7 @@ interface Translation {
     body: ReadonlyArray<string>;
     languages: {
       title: string;
-      speaking: ReadonlyArray<{ name: string; level: string }>;
+      speaking: ReadonlyArray<Language>;
       learning: {
         title: string;
         list: ReadonlyArray<string>;
@@ -52,7 +62,7 @@ interface Translation {
     education: {
       title: string;
       university: string;
-      info: ReadonlyArray<{ name: string; body: string }>;
+      info: ReadonlyArray<EducationItem>;
     };
   };
   experience: {
@@ -65,7 +75,7 @@ interface Translation {
   };
   contacts: {
     title: string;
-    list: ReadonlyArray<ContactItem>;
+    list: ReadonlyArray<Contact>;
   };
   programming: string;
   skills: string;
@@ -81,5 +91,3 @@ export const dictionary = {
   ru,
   en,
 };
-
-export default Translation;

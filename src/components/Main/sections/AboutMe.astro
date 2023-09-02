@@ -16,14 +16,14 @@ import ProfilePic from "@assets/github_profile_pic 1.jpg";
       alt={"profile pic"}
     />
     <div class={"max-w-2xl"}>
-      {t.about.body.map((paragraph) => <p>{paragraph}</p>)}
+      {t.about.body.map((paragraph: string) => <p>{paragraph}</p>)}
       <div class={"flex flex-col-reverse sm:flex-row gap-8 mt-3"}>
         <div>
           <h3 class={"mb-2 text-2xl font-semibold"}>
             {t.about.languages.title}
           </h3>
           <ul>
-            {t.about.languages.speaking.map((lang) => <li>{lang.name}</li>)}
+            {t.about.languages.speaking.map((lang: { name: string; level: string }) => <li>{lang.name}</li>)}
           </ul>
           <p>
             {t.about.languages.learning.title}: {
@@ -37,7 +37,7 @@ import ProfilePic from "@assets/github_profile_pic 1.jpg";
           </h3>
           <p>{t.about.education.university}</p>
           {
-            t.about.education.info.map((info) => (
+            t.about.education.info.map((info: { name: string; body: string }) => (
               <p>
                 <strong>{info.name}</strong>: {info.body}.
               </p>

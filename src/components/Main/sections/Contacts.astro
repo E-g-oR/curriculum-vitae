@@ -2,6 +2,7 @@
 import Section from "../Section.astro";
 import { useTranslations } from "@i18n/utils";
 import ContactItem from "./ContactItem.astro";
+import type { Contact } from "@i18n/translation";
 
 const t = useTranslations(Astro);
 ---
@@ -10,6 +11,6 @@ const t = useTranslations(Astro);
   <ul
     class={"flex gap-4 flex-wrap justify-center mx-auto max-w-xs sm:max-w-full"}
   >
-    {t.contacts.list.map((contact) => <ContactItem contact={contact} />)}
+    {t.contacts.list.map((contact: Contact) => <ContactItem contact={contact} />)}
   </ul>
 </Section>

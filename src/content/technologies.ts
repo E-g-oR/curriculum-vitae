@@ -12,7 +12,7 @@ export const techPriority: Record<Category, number> = {
 export interface Technology {
   name: string;
   href: string;
-  image: string;
+  image: ImageMetadata;
   category: Category;
 }
 

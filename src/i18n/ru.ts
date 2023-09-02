@@ -1,11 +1,12 @@
-import type Translation from "./translation";
+import type { Translation } from "./translation";
 import locale from "date-fns/locale/ru/index";
 import { format, formatDistanceStrict, isSameYear } from "date-fns";
 
 const ru: Translation = {
   page: {
     title: "Егор Музычкин",
-    description: "Опытный фронтенд-разработчик, создаю веб-сайты и веб-приложения используя самые современные технологии разработки."
+    description:
+      "Опытный фронтенд-разработчик, создаю веб-сайты и веб-приложения используя самые современные технологии разработки.",
   },
   format: {
     distance: ([start, end]) => formatDistanceStrict(start, end, { locale }),
@@ -69,7 +70,7 @@ const ru: Translation = {
         position: "Фронтенд разработчик",
         description: "Разработка программных продуктов в разных сферах.",
         company: "NDA",
-        period: [new Date(2021, 8, 1), new Date(2021, 9, 30)],
+        period: [new Date(2022, 9, 26), new Date(2023, 9, 25)],
         responsibilities: [
           "Разработка и внедрение дизайна пользовательского интерфейса",
           "Разработка проектов и архитектуры",
@@ -92,7 +93,7 @@ const ru: Translation = {
         description:
           "Разработка пользовательского интерфейса, обработка и визуализация данных, багфикс.",
         company: "ITSupportMe",
-        period: [new Date(2021, 9, 13), new Date(2022, 10, 15)],
+        period: [new Date(2021, 8, 13), new Date(2022, 9, 15)],
         responsibilities: [
           "Создание переиспользуемых компонентов",
           "Построение пользовательского интерфейса",
@@ -108,7 +109,7 @@ const ru: Translation = {
         description:
           "Познакомился с разработкой веб-приложений, а так же мобильной разработкой. Научился писать юнит-тесты и интеграционные тесты.",
         company: "ITSupportMe",
-        period: [new Date(2021, 8, 1), new Date(2021, 9, 30)],
+        period: [new Date(2021, 7, 1), new Date(2021, 8, 13)],
         responsibilities: [],
         technologies: [
           "React",

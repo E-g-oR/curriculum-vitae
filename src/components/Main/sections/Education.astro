@@ -1,14 +1,14 @@
 ---
 import Section from "../Section.astro";
 import { useTranslations } from "@i18n/utils";
-
+import type {EducationItem} from "@i18n/translation"
 const t = useTranslations(Astro);
 ---
 
 <Section title={t.about.education.title}>
   <p class={"text-xl"}>{t.about.education.university}.</p>
   {
-    t.about.education.info.map((item) => (
+    t.about.education.info.map((item: EducationItem) => (
       <p>
         <strong>{item.name}</strong>: {item.body}.
       </p>
