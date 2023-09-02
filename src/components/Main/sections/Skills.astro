@@ -1,10 +1,181 @@
 ---
 import Section from "../Section.astro";
 import { useTranslations } from "@i18n/utils";
-import technologies from "@content/technologies";
 import { getTechsOrdered } from "../../../utils";
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
+import type { Technology } from "@content/technologies";
 const t = useTranslations(Astro);
+
+import javascript from "@assets/javascript.svg"
+import typescript from "@assets/typescript.svg"
+import bear from "@assets/bear.svg"
+import astro from "@assets/astro.svg"
+import cucumber from "@assets/cucumber.svg"
+import figma from "@assets/figma.svg"
+import firebase from "@assets/firebase.svg"
+import git from "@assets/git.svg"
+import jest from "@assets/jest.svg"
+import nest from "@assets/nest.svg"
+import nextjs from "@assets/nextjs.svg"
+import postgresql from "@assets/postgresql.svg"
+import prisma from "@assets/prisma.svg"
+import react from "@assets/react.svg"
+import redux from "@assets/redux.svg"
+import sass from "@assets/sass.svg"
+import socket from "@assets/socket.svg"
+import solidjs from "@assets/solidjs.svg"
+import tailwindcss from "@assets/tailwindcss.svg"
+import tauri from "@assets/tauri.svg"
+import testing from "@assets/testing.svg"
+import thin from "@assets/thin.svg"
+import vanilla from "@assets/vanilla.svg"
+
+const technologies: ReadonlyArray<Technology> = [
+  {
+    name: "JavaScript",
+    image: javascript,
+    href: "https://js-documentation.netlify.app/",
+    category: "front",
+  },
+  {
+    name: "TypeScript",
+    image: typescript,
+    href: "https://www.typescriptlang.org/",
+    category: "front",
+  },
+  {
+    name: "React",
+    image: react,
+    href: "https://react.dev/blog/2023/03/16/introducing-react-dev",
+    category: "front",
+  },
+  {
+    name: "React Native",
+    image: react,
+    href: "https://reactnative.dev/docs/getting-started",
+    category: "mobile",
+  },
+  {
+    name: "Next.js",
+    image: nextjs,
+    href: "https://nextjs.org/docs",
+    category: "front",
+  },
+  {
+    name: "NestJs",
+    image: nest,
+    href: "https://docs.nestjs.com/",
+    category: "back",
+  },
+  {
+    name: "Prisma",
+    image: prisma,
+    href: "https://www.prisma.io/docs",
+    category: "back",
+  },
+  {
+    name: "Astro",
+    image: astro,
+    href: "https://docs.astro.build/en/getting-started/",
+    category: "front",
+  },
+  {
+    name: "SolidJs",
+    image: solidjs,
+    href: "https://www.solidjs.cn/guides/getting-started",
+    category: "front",
+  },
+  {
+    name: "Redux",
+    image: redux,
+    href: "https://redux.js.org/",
+    category: "front",
+  },
+  {
+    name: "Zustand",
+    image: bear,
+    href: "https://docs.pmnd.rs/zustand/getting-started/introduction",
+    category: "front",
+  },
+  {
+    name: "Soket.io",
+    image: socket,
+    href: "",
+    category: "front",
+  },
+  {
+    name: "PostgreSQL",
+    image: postgresql,
+    href: "",
+    category: "back",
+  },
+  {
+    name: "Sass/Scss",
+    image: sass,
+    href: "",
+    category: "styles",
+  },
+  {
+    name: "Figma",
+    image: figma,
+    href: "",
+    category: "others",
+  },
+  {
+    name: "Git",
+    image: git,
+    href: "",
+    category: "others",
+  },
+  {
+    name: "TailwindCss",
+    image: tailwindcss,
+    href: "https://v2.tailwindcss.com/",
+    category: "styles",
+  },
+  {
+    name: "vanilla-extract/css",
+    image: vanilla,
+    href: "https://vanilla-extract.style/",
+    category: "styles",
+  },
+  {
+    name: "Jest",
+    image: jest,
+    href: "https://jestjs.io/",
+    category: "testing",
+  },
+  {
+    name: "React testing library",
+    image: testing,
+    href: "",
+    category: "testing",
+  },
+  {
+    name: "Cucumber",
+    image: cucumber,
+    href: "",
+    category: "testing",
+  },
+  {
+    name: "Thin",
+    image: thin,
+    href: "",
+    category: "back",
+  },
+  {
+    name: "Firebase",
+    image: firebase,
+    href: "",
+    category: "back",
+  },
+  {
+    name: "Tauri",
+    image: tauri,
+    href: "",
+    category: "others",
+  },
+];
 const techsOrdered = getTechsOrdered(technologies);
 ---
 
@@ -16,7 +187,7 @@ const techsOrdered = getTechsOrdered(technologies);
       techsOrdered.map((tech) => (
         <div class="flex flex-col gap-2 items-center">
           <Image
-            src={`/${tech?.image ?? tech.name}.svg`}
+            src={tech?.image}
             width={64}
             height={64}
             alt={tech.name ?? "tech"}

@@ -2,8 +2,8 @@
 import { useTranslations } from "@i18n/utils";
 import Section from "../Section.astro";
 const t = useTranslations(Astro);
-import { Image } from "@astrojs/image/components";
-import ProfilePic from "../../../../public/github_profile_pic 1.jpg";
+import { Image } from "astro:assets";
+import ProfilePic from "@assets/github_profile_pic 1.jpg";
 ---
 
 <Section title={t.about.title}>
@@ -12,7 +12,7 @@ import ProfilePic from "../../../../public/github_profile_pic 1.jpg";
   >
     <Image
       class={"w-56 h-56 bg-zinc-800 rounded-full flex-shrink-0 object-cover"}
-      src={ProfilePic ?? "github_profile_pic 1.jpg"}
+      src={ProfilePic}
       alt={"profile pic"}
     />
     <div class={"max-w-2xl"}>

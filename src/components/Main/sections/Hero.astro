@@ -1,13 +1,15 @@
 ---
-import { Image } from "@astrojs/image/components";
+import { Image } from "astro:assets";
 import Container from "@components/Container.astro";
 import { useTranslations } from "@i18n/utils";
-import profile from "../../../../public/github_profile_pic 1.jpg";
+import profile from "@assets/github_profile_pic 1.jpg";
 const t = useTranslations(Astro);
 ---
 
 <section>
-  <Container className={"flex gap-6 flex-col-reverse sm:flex-row items-center justify-between"}>
+  <Container
+    className={"flex gap-6 flex-col-reverse sm:flex-row items-center justify-between"}
+  >
     <div class={"max-w-lg flex flex-col gap-3"}>
       <h1 class={"text-5xl sm:text-6xl font-bold"}>{t.name}</h1>
       <p>{t.description}</p>

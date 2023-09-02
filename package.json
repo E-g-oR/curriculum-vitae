@@ -10,9 +10,8 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/image": "^0.17.2",
     "@astrojs/tailwind": "^4.0.0",
-    "astro": "^2.9.4",
+    "astro": "^3.0.7",
     "astro-icon": "^0.8.1",
     "astro-seo": "^0.7.5",
     "date-fns": "^2.30.0",
